@@ -1,7 +1,9 @@
 function makeGraph(graphs) {
   const result = {};
 
-  graphs.forEach(({name, data}) => {
+  graphs.forEach(graph => {
+    const {name, data} = graph;
+
     if (result[name]) throw Error('Duplicate graph ' + name);
 
     const states = {},
