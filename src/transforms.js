@@ -1,23 +1,18 @@
 function makeGraph(graphs) {
-  var result = {};
+  const result = {};
 
-  console.log('graphs', graphs);
-
-  graphs.forEach(function(graph) {
-    var name = graph.name;
-
+  graphs.forEach(({name, data}) => {
     if (result[name]) throw Error('Duplicate graph ' + name);
 
-    var states = {},
-        ret = {name: name},
-        data = graph.data;
+    const states = {},
+          ret = {name};
 
     if (data) ret.data = data;
 
-    graph.states.forEach(function(state) { states[state.name] = state.state; });
+    graph.states.forEach(({name, state}) => states[name] = state);
 
     if (graph.states.length > 0) ret.start = graph.states[0].name;
-    console.log('ret', ret);
+
     ret.states = states; // I want "data" to appear before "states" in the output
 
     result[name] = ret;
@@ -31,12 +26,12 @@ function makeIdentifier(chars) {
 }
 
 function makeState(name, rules) {
-  console.log('rules', rules);
-  var data,
-      properties = [],
-      transitions = [];
+  let data,
+      properties = [];
 
-  rules.forEach(function(rule) {
+  const transitions = [];
+
+  rules.forEach(rule => {
     if (rule.data) {
       data = rule.data;
     }
@@ -49,11 +44,11 @@ function makeState(name, rules) {
   });
 
   return {
-    name: name,
+    name,
     state: {
-      data: data,
-      properties: properties,
-      transitions: transitions
+      data,
+      properties,
+      transitions
     }
   };
 }
