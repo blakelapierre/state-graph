@@ -1,12 +1,3 @@
-// graphs
-//   = graphs:(
-//       first:graph
-//       rest:(g:graph { return g; })*
-//       {
-//         return makeGraph([first].concat(rest));
-//       }
-//    )
-
 graphs
  = graphs:(graph*) { return makeGraph(graphs); }
 
