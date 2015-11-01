@@ -1,0 +1,52 @@
+presidential-frontend {
+  teaser:
+     : [teaser]
+    -> intro
+  intro:
+     : [intro]
+    -> choose
+  choose:
+     : [choose]
+    -> new-league
+    -> existing-league
+}
+
+new-league {
+  @ [league]
+  pasture:
+     : [pasture]
+    -> stable
+  stable:
+     : [stable, pasture]
+    -> pasture
+    -> set-draft
+  set-draft:
+     @ [^draft]
+     : [set-draft, stable]
+    -> stable
+    -> invite
+  invite:
+     @ [^invitation]
+     : [invite, stable]
+    -> set-draft
+    -> pre-game
+  pre-game:
+     : [pre-game, stable]
+    -> countdown
+    -> draft
+  countdown:
+     : [countdown, stable]
+    -> draft
+  draft:
+     : [stable, draft]
+    -> game
+  game:
+     : [game]
+}
+
+existing-league {
+  selector:
+     : [selector]
+    -> choose
+    -> random
+}
