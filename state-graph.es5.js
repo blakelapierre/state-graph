@@ -85,7 +85,7 @@ module.exports = (function () {
       return data;
     },
         peg$c32 = function peg$c32(modifier, id, rest) {
-      return [{ id: id, modifier: modifier }].concat(rest);
+      return [{ id: id, modifier: modifier || undefined }].concat(rest);
     },
         peg$c33 = function peg$c33(name, rules) {
       return makeState(name, rules);

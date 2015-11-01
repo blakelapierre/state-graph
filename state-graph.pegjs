@@ -83,7 +83,7 @@ graph
     data:data?
     states:states
     graph_end
-    { return {name: name, data: data || undefined, states: states}; }
+    { return {name, data: data || undefined, states}; }
 
 name
   = id:identifier { return id; }
@@ -104,7 +104,7 @@ data_list
   = list_begin data:list_of_data list_end { return data; }
 
 list_of_data
-  = modifier:modifier? id:identifier rest:("," list_of_data)* { return [{id: id, modifier: modifier}].concat(rest); }
+  = modifier:modifier? id:identifier rest:("," list_of_data)* { return [{id, modifier: modifier || undefined}].concat(rest); }
 
 states
   = state*
@@ -121,10 +121,10 @@ rule
   / transition
 
 data
-  = data_begin data:data_list { return {data: data}; }
+  = data_begin data:data_list { return {data}; }
 
 properties
-  = properties_begin properties:identifier_list { return {properties: properties}; }
+  = properties_begin properties:identifier_list { return {properties}; }
 
 transition
   = transition_begin state:identifier { return {transition: state}; }
