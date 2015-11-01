@@ -1,6 +1,6 @@
 {
   "name": "state-graph",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "state-graph.es5.js",
   "devDependencies": {
