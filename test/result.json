@@ -1,0 +1,146 @@
+{
+  "presidential-frontend": {
+    "name": "presidential-frontend",
+    "start": "teaser",
+    "states": {
+      "teaser": {
+        "properties": [
+          "teaser"
+        ],
+        "transitions": [
+          "intro"
+        ]
+      },
+      "intro": {
+        "properties": [
+          "intro"
+        ],
+        "transitions": [
+          "choose"
+        ]
+      },
+      "choose": {
+        "properties": [
+          "choose"
+        ],
+        "transitions": [
+          "new-league",
+          "existing-league"
+        ]
+      }
+    }
+  },
+  "new-league": {
+    "name": "new-league",
+    "data": {
+      "data": [
+        {
+          "id": "league",
+          "modifier": null
+        }
+      ]
+    },
+    "start": "pasture",
+    "states": {
+      "pasture": {
+        "properties": [
+          "pasture"
+        ],
+        "transitions": [
+          "stable"
+        ]
+      },
+      "stable": {
+        "properties": [
+          "stable",
+          "pasture"
+        ],
+        "transitions": [
+          "pasture",
+          "set-draft"
+        ]
+      },
+      "set-draft": {
+        "data": [
+          {
+            "id": "draft",
+            "modifier": "^"
+          }
+        ],
+        "properties": [
+          "set-draft",
+          "stable"
+        ],
+        "transitions": [
+          "stable",
+          "invite"
+        ]
+      },
+      "invite": {
+        "data": [
+          {
+            "id": "invitation",
+            "modifier": "^"
+          }
+        ],
+        "properties": [
+          "invite",
+          "stable"
+        ],
+        "transitions": [
+          "set-draft",
+          "pre-game"
+        ]
+      },
+      "pre-game": {
+        "properties": [
+          "pre-game",
+          "stable"
+        ],
+        "transitions": [
+          "countdown",
+          "draft"
+        ]
+      },
+      "countdown": {
+        "properties": [
+          "countdown",
+          "stable"
+        ],
+        "transitions": [
+          "draft"
+        ]
+      },
+      "draft": {
+        "properties": [
+          "stable",
+          "draft"
+        ],
+        "transitions": [
+          "game"
+        ]
+      },
+      "game": {
+        "properties": [
+          "game"
+        ],
+        "transitions": []
+      }
+    }
+  },
+  "existing-league": {
+    "name": "existing-league",
+    "start": "selector",
+    "states": {
+      "selector": {
+        "properties": [
+          "selector"
+        ],
+        "transitions": [
+          "choose",
+          "random"
+        ]
+      }
+    }
+  }
+}
