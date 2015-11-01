@@ -72,7 +72,7 @@ module.exports = (function() {
         peg$c33 = function(name, rules) { return makeState(name, rules); },
         peg$c34 = function(data) { return {data}; },
         peg$c35 = function(properties) { return {properties}; },
-        peg$c36 = function(state) { return {transition: state}; },
+        peg$c36 = function(transition) { return {transition}; },
 
         peg$currPos          = 0,
         peg$savedPos         = 0,

@@ -96,8 +96,8 @@ module.exports = (function () {
         peg$c35 = function peg$c35(properties) {
       return { properties: properties };
     },
-        peg$c36 = function peg$c36(state) {
-      return { transition: state };
+        peg$c36 = function peg$c36(transition) {
+      return { transition: transition };
     },
         peg$currPos = 0,
         peg$savedPos = 0,

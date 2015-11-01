@@ -127,4 +127,4 @@ properties
   = properties_begin properties:identifier_list { return {properties}; }
 
 transition
-  = transition_begin state:identifier { return {transition: state}; }
+  = transition_begin transition:identifier { return {transition}; }
