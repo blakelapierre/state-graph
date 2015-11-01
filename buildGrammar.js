@@ -1,7 +1,7 @@
 import fs from 'fs';
 
-import {render} from 'mustache';
 import _ from 'lodash';
+import {render} from 'mustache';
 
 const paths = {
   template:   './src/template.mustache',
